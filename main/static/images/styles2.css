@@ -1,0 +1,66 @@
+body {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #e0e7ff 100%);
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: #3b82f6 !important;
+}
+
+.ai-wrapper {
+    padding-top: 100px; 
+    min-height: 100vh;
+}
+
+.card {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.form-control, .form-select, .form-range {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.form-control:focus, .form-select:focus, .form-range:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.btn-primary:active {
+    background-color: #1d4ed8;
+    transform: scale(1);
+}
+
+.form-check-label {
+    color: #374151;
+}
+
+.text-primary {
+    color: #3b82f6 !important;
+}
+
+a.text-primary:hover {
+    color: #2563eb !important;
+}

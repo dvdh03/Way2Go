@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Itinerary Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'styles2.css' %}" rel="stylesheet">
+    <script>
+        function updateBudgetValue(value) {
+            document.getElementById("budget-display").innerText = ₹${value};
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">Way2GO</a>
+        </div>
+    </nav>
+
+    <div class="ai-wrapper d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow-lg border-0">
+                        <div class="card-body p-5">
+                            <h2 class="text-center fw-bold text-primary mb-4">Plan Your Trip with AI</h2>
+                            <form method="POST" action="{% url 'generate_itinerary' %}">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="budget" class="form-label">Budget</label>
+                                    <div class="d-flex align-items-center">
+                                        <input 
+                                            type="range" 
+                                            class="form-range" 
+                                            id="budget" 
+                                            name="budget" 
+                                            min="100" 
+                                            max="10000" 
+                                            step="50" 
+                                            value="1000" 
+                                            oninput="updateBudgetValue(this.value)">
+                                        <span class="ms-3 fw-bold" id="budget-display">₹1000</span>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="climate" class="form-label">Preferred Climate</label>
+                                    <select class="form-select" id="climate" name="climate">
+                                        <option selected disabled>Select a climate</option>
+                                        <option value="tropical">Tropical</option>
+                                        <option value="cold">Cold</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="desert">Desert</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Travel Interests</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="adventure" id="adventure" name="interests">
+                                        <label class="form-check-label" for="adventure">Adventure</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="beaches" id="beaches" name="interests">
+                                        <label class="form-check-label" for="beaches">Beaches</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="cultural" id="cultural" name="interests">
+                                        <label class="form-check-label" for="cultural">Cultural Exploration</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="nature" id="nature" name="interests">
+                                        <label class="form-check-label" for="nature">Nature & Wildlife</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="group-size" class="form-label">Group Size</label>
+                                    <input type="number" class="form-control" id="group-size" name="group_size" placeholder="Number of travelers">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="duration" class="form-label">Travel Duration (in days)</label>
+                                    <input type="number" class="form-control" id="duration" name="duration" placeholder="Enter the number of days">
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100">Generate Itinerary</button>
+                                </div>
+                            </form>
+                            <p class="text-center mt-3">
+                                Prefer exploring manually? <a href="{% url 'plan' %}" class="text-primary">Plan Your Own</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

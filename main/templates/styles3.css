@@ -1,0 +1,96 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #0066cc;
+}
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+}
+.navbar-brand:hover {
+    color: #ffc107 !important;
+}
+.container {
+    margin-top: 100px;
+}
+.itinerary-description {
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: 2px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+.itinerary-description h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.itinerary-description p,
+.itinerary-description ul {
+    font-size: 1rem;
+    color: #666;
+}
+.itinerary-description ul {
+    padding-left: 20px;
+}
+.itinerary-description ul li {
+    margin-bottom: 8px;
+}
+.route-map {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.route-map h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#route-map-placeholder {
+    width: 100%;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+.route-map p {
+    font-size: 1rem;
+    color: #666;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.col-md-6 {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+    }
+
+    .itinerary-description, .route-map {
+        border-right: none;
+        border-bottom: 2px solid #e0e0e0;
+        margin-bottom: 20px;
+    }
+}

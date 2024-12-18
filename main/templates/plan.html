@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Your Own Itinerary</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .plan-wrapper {
+            padding-top: 100px;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .card {
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-dropdown {
+            min-width: 180px;
+        }
+
+        .input-group {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="home.html">Way2GO</a>
+        </div>
+    </nav>
+
+    <div class="plan-wrapper py-5 text-center">
+        <div class="container">
+            <h1 class="fw-bold text-primary mb-4">Plan Your Itinerary</h1>
+            <div class="input-group mb-5 mx-auto">
+                <input type="text" class="form-control" placeholder="Search destinations..." aria-label="Search destinations">
+                <button class="btn btn-primary" type="button">Search</button>
+
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle filter-dropdown" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                        <li><a class="dropdown-item" href="#">Most Likes</a></li>
+                        <li><a class="dropdown-item" href="#">Least Likes</a></li>
+                        <li><a class="dropdown-item" href="#">By Popularity</a></li>
+                        <li><a class="dropdown-item" href="#">By Price</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d1.jpeg" class="card-img-top" alt="Destination 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Paris</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d2.jpeg" class="card-img-top" alt="Destination 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Maldives</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d3.jpeg" class="card-img-top" alt="Destination 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Switzerland</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d4.jpg" class="card-img-top" alt="Destination 4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tokyo</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d5.jpg" class="card-img-top" alt="Destination 5">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dubai</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d6.jpg" class="card-img-top" alt="Destination 6">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rome</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d7.jpg" class="card-img-top" alt="Destination 7">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">London</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d8.jpg" class="card-img-top" alt="Destination 8">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Bali</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d9.jpg" class="card-img-top" alt="Destination 9">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Singapore</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d10.jpg" class="card-img-top" alt="Destination 10">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Bangkok</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d11.jpg" class="card-img-top" alt="Destination 11">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Hong Kong</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d12.jpg" class="card-img-top" alt="Destination 12">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Barcelona</h5>
+                            <button class="btn btn-outline-danger btn-sm">  Like</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

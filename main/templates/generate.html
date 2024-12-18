@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Itinerary</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'styles2.css' %}" rel="stylesheet">
+    <style>
+        .content-wrapper {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">Way2GO</a>
+        </div>
+    </nav>
+
+    <div class="container content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <h2 class="text-primary fw-bold text-center mb-4">Your AI-Generated Itinerary</h2>
+                        <pre class="p-3" style="background-color: #f9f9f9; border-radius: 8px;">{{ itinerary }}</pre>
+                        <div class="text-center mt-4">
+                            <a href="{% url 'ai' %}" class="btn btn-primary">Plan Another Trip</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

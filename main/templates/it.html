@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary for Your Destination</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <style>
+        .plan-wrapper {
+            padding-top: 100px;
+            background: linear-gradient(135deg, #f3f4f6 0%, #e0e7ff 100%);
+            min-height: 100vh;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .card {
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-dropdown {
+            min-width: 180px;
+        }
+
+        .input-group {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="home.html">Way2GO</a>
+        </div>
+    </nav>
+
+    <div class="plan-wrapper py-5 text-center">
+        <div class="container">
+            <h1 class="fw-bold text-primary mb-4">Itinerary for Your Destination</h1>
+            <div class="input-group mb-5 mx-auto">
+                <input type="text" class="form-control" placeholder="Search destinations..." aria-label="Search destinations">
+                <button class="btn btn-primary" type="button">Search</button>
+
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle filter-dropdown" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Select Place
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                        <li><a class="dropdown-item" href="#">Paris</a></li>
+                        <li><a class="dropdown-item" href="#">Maldives</a></li>
+                        <li><a class="dropdown-item" href="#">Switzerland</a></li>
+                        <li><a class="dropdown-item" href="#">Tokyo</a></li>
+                        <li><a class="dropdown-item" href="#">Dubai</a></li>
+                        <li><a class="dropdown-item" href="#">Rome</a></li>
+                        <li><a class="dropdown-item" href="#">London</a></li>
+                        <li><a class="dropdown-item" href="#">Bali</a></li>
+                        <li><a class="dropdown-item" href="#">Singapore</a></li>
+                        <li><a class="dropdown-item" href="#">Bangkok</a></li>
+                        <li><a class="dropdown-item" href="#">Hong Kong</a></li>
+                        <li><a class="dropdown-item" href="#">Barcelona</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d1.jpeg" class="card-img-top" alt="Paris Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Paris Itinerary</h5>
+                            <ul>
+                                <li>Eiffel Tower Visit</li>
+                                <li>Seine River Cruise</li>
+                                <li>Louvre Museum Tour</li>
+                                <li>Montmartre Exploration</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d2.jpeg" class="card-img-top" alt="Maldives Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Maldives Itinerary</h5>
+                            <ul>
+                                <li>Snorkeling & Diving</li>
+                                <li>Beach Relaxation</li>
+                                <li>Private Island Tour</li>
+                                <li>Luxury Resort Experience</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d3.jpeg" class="card-img-top" alt="Switzerland Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Switzerland Itinerary</h5>
+                            <ul>
+                                <li>Lucerne City Tour</li>
+                                <li>Jungfraujoch Mountain Visit</li>
+                                <li>Lake Geneva Cruise</li>
+                                <li>Zurich Old Town Exploration</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d4.jpg" class="card-img-top" alt="Tokyo Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tokyo Itinerary</h5>
+                            <ul>
+                                <li>Shibuya Crossing</li>
+                                <li>Senso-ji Temple Visit</li>
+                                <li>Akihabara Shopping</li>
+                                <li>Mount Fuji Day Trip</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d5.jpg" class="card-img-top" alt="Dubai Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dubai Itinerary</h5>
+                            <ul>
+                                <li>Burj Khalifa Visit</li>
+                                <li>Desert Safari</li>
+                                <li>Dubai Mall Shopping</li>
+                                <li>Dubai Marina Cruise</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="d6.jpg" class="card-img-top" alt="Rome Itinerary">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Rome Itinerary</h5>
+                            <ul>
+                                <li>Colosseum Tour</li>
+                                <li>Vatican Museums</li>
+                                <li>Roman Forum Exploration</li>
+                                <li>Trevi Fountain Visit</li>
+                            </ul>
+                            <button class="btn btn-outline-danger btn-sm"> Like</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
