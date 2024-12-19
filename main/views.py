@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
@@ -10,7 +10,7 @@ from langchain.prompts import PromptTemplate
 import ollama
 from langchain_ollama.llms import OllamaLLM
 from datetime import datetime, timedelta  # Ensure no syntax errors here
-from .models import ItineraryRequest
+from .models import ItineraryRequest, Destination, Itinerary
 
 def home(request):
     return render(request, 'home.html')
@@ -36,8 +36,6 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         return '/home2/'
 
-def itineraries(request):
-    return render(request, 'it.html') 
 
 def home2_view(request):
     return render(request, 'home2.html')
@@ -144,8 +142,85 @@ def generate_itinerary(request):
     else:
         return render(request, "ai.html")
 
-def destinations(request):
-    return render(request, 'st.html')
+@csrf_exempt
+def store_itinerary(request):
+    if request.method == "POST":
+        # Check if the user is authenticated
+        if request.user.is_authenticated:
+            username = request.user.username  # Get the username if the user is authenticated
+        else:
+            # Redirect to login page or handle the case where user is not authenticated
+            return redirect('login')  # Adjust the redirect to your login URL if needed
+        
+        # Extract user input from the POST request
+        budget = request.POST.get("budget", "1000")
+        climate = request.POST.get("climate", "moderate")
+        interests = request.POST.get("interests", "")
+        group_size = request.POST.get("group_size", "1")
+        duration = request.POST.get("duration", "3")
+        start_date = request.POST.get("start_date", datetime.now().strftime("%Y-%m-%d"))
+        end_date = (datetime.strptime(start_date, "%Y-%m-%d") + timedelta(days=int(duration))).strftime("%Y-%m-%d")
+
+        # Save the itinerary request to the database
+        itinerary_request = ItineraryRequest(
+            username=username,
+            budget=int(budget),
+            climate=climate,
+            interests=interests,
+            group_size=int(group_size),
+            duration=int(duration),
+            start_date=start_date,
+            end_date=end_date,
+            response="Manual input - No AI response generated."
+        )
+        itinerary_request.save()
+
+        # Redirect to a success page or show confirmation
+        return render(request, "home.html")
+    else:
+        return render(request, "plan.html")
 
 def ai(request):
     return render(request, 'ai.html')
+
+def destination_list(request):
+    destinations = Destination.objects.all()
+    itineraries = Itinerary.objects.select_related('destination').all()
+    context = {
+        "destinations": destinations,
+        "itineraries": itineraries
+    }
+    return render(request, "st.html", context)
+
+def itinerary_list(request):
+    itineraries_data = []
+    
+    # Fetch all itineraries and build a dictionary
+    for itinerary in Itinerary.objects.all():
+        itineraries_data.append({
+            'title': itinerary.destination,
+            'image_url': itinerary.image.url if itinerary.image else '',  # Ensure safe handling of image
+            'highlights': itinerary.highlights.split(","),  # Convert highlights to a list
+        })
+ 
+
+    # Pass the dictionary to the template
+    return render(request, 'it.html', {'itineraries_data': itineraries_data})
+
+def destination_itinerary(request, destination_id):
+    destination = get_object_or_404(Destination, id=destination_id) 
+
+    itineraries = []
+    
+    # Fetch all itineraries and build a dictionary
+    for itinerary in destination.itineraries.all()  :
+        itineraries.append({
+            'title': itinerary.destination,
+            'image_url': itinerary.image.url if itinerary.image else '',  # Ensure safe handling of image
+            'highlights': itinerary.highlights.split(","),  # Convert highlights to a list
+        })
+
+    return render(request, 'destination_itinerary.html', {
+        'destination': destination,
+        'itineraries': itineraries
+    })

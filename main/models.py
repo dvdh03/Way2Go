@@ -19,8 +19,8 @@ class ItineraryRequest(models.Model):
 
 class Destination(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='destinations/', blank=True, null=True)  # Optional image upload
-    description = models.TextField(blank=True)  # Description of the destination
+    image = models.ImageField(upload_to='destinations/', blank=True, null=True)   
+    description = models.TextField(blank=True)   
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -29,9 +29,9 @@ class Destination(models.Model):
 class Itinerary(models.Model):
     destination = models.ForeignKey(Destination, on_delete=models.CASCADE, related_name="itineraries")
     title = models.CharField(max_length=200)
-    highlights = models.TextField()  # Store highlights as a comma-separated string
-    details = models.TextField()  # Detailed itinerary description
-    image = models.ImageField(upload_to='itineraries/', blank=True, null=True)  # Optional image upload
+    highlights = models.TextField()   
+    details = models.TextField()   
+    image = models.ImageField(upload_to='itineraries/', blank=True, null=True)   
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

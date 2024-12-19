@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Way2Go</title>
-    <link href="/static/css/styles.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-light shadow-sm">
@@ -61,21 +62,21 @@
                     <button type="button" data-bs-target="#howItWorksCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner rounded-4 shadow-lg">
-                    <div class="carousel-item active" style="background-image: url('/static/images/c1.jpg');">
+                    <div class="carousel-item active" style="background-image: url('{% static 'images/c1.jpg' %}');">
                         <div class="carousel-caption text-center">
                             <h3>Choose Your Destination</h3>
                             <p>Select from hundreds of amazing locations or let our AI suggest the perfect destination.</p>
                         </div>
                     </div>
 
-                    <div class="carousel-item" style="background-image: url('/static/images/c2.jpg');">
+                    <div class="carousel-item" style="background-image: url('{% static 'images/c2.jpg' %}');">
                         <div class="carousel-caption text-center">
                             <h3>Customize Your Trip</h3>
                             <p>Tailor your itinerary with activities, restaurants, and accommodations that match your style.</p>
                         </div>
                     </div>
 
-                    <div class="carousel-item" style="background-image: url('/static/images/c3.jpg');">
+                    <div class="carousel-item" style="background-image: url('{% static 'images/c3.jpg' %}');">
                         <div class="carousel-caption text-center">
                             <h3>Travel With Confidence</h3>
                             <p>Access your detailed travel plan anywhere, with offline maps and real-time updates.</p>
